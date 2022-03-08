@@ -1,0 +1,85 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Serif JP', serif;
+  overflow: hidden;
+}
+div#app{
+  text-align: center;
+}
+
+#logo img{
+  width: 75%;
+}
+#select img{
+  width: 70%;
+  margin: 2% 2% 0 2%;
+}
+#about img{
+  width: 35%;
+  margin: 2%;
+}
+#select{
+  position: fixed;
+  bottom: 0;
+}
+.select_start{
+  animation: start .5s ease 0s infinite alternate;
+}
+@keyframes start {
+  0%{
+    transform: scale(0.95);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+#log{
+  width: 70%;
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+  margin: 5% auto;
+  padding: 2% 0;
+}
+p.yet{
+  font-size: 1.5em;
+}
+p.done{
+  font-size: 2.5em;
+}
+.menu-enter-active,/*入場指定*/
+.logo-enter-active {
+  transition: all 1s .5s ease;
+}
+.menu-leave-active,/*退場指定*/
+.logo-leave-active {
+  transition: all 1s ease;
+}
+
+.menu-enter-from,/*全体的な指定*/
+.menu-leave-to {
+  opacity: 0;
+}
+
+.logo-enter-from,/*ロゴ移動の指定*/
+.logo-leave-to {
+  transform: translateY(-50px);
+}
+
+.toujou-enter-active,
+.toujou-leave-active {
+  transition: all 1s ease;
+}
+
+.toujou-enter-from {
+  transform: translateY(50px);
+  opacity: 1;
+}
+
+img.Jitome{
+  width: 65%;
+  position: absolute;
+  bottom: -8%;
+  left: 18%;
+}
+
