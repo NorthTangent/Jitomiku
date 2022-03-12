@@ -2,12 +2,19 @@
   padding: 0;
   margin: 0;
   font-family: 'Noto Serif JP', serif;
-  overflow: hidden;
 }
 div#app{
   text-align: center;
 }
-
+body{
+  color: #000000;
+  background-color: #ffffff;
+  position: relative;
+}
+div.kotei {
+  height: 100vh;
+  overflow: hidden;
+}
 #logo img{
   width: 75%;
 }
@@ -18,10 +25,6 @@ div#app{
 #about img{
   width: 35%;
   margin: 2%;
-}
-#select{
-  position: fixed;
-  bottom: 0;
 }
 .select_start{
   animation: start .5s ease 0s infinite alternate;
@@ -45,7 +48,7 @@ p.yet{
   font-size: 1.5em;
 }
 p.done{
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 .menu-enter-active,/*入場指定*/
 .logo-enter-active {
@@ -66,20 +69,53 @@ p.done{
   transform: translateY(-50px);
 }
 
-.toujou-enter-active,
-.toujou-leave-active {
+#talk {
+  position: fixed;
+  bottom: 15%;
+}
+
+.fukidashi{
+  padding: 5%;
+  position: relative;
+  text-align: start;
+}
+.fukidashi img {
+  width: 90%;
+  height: auto;
+  position: absolute;
+}
+.fukidashi p {
+  font-family: 'RocknRoll One', sans-serif;
+  position: absolute;
+  width: 85%;
+  margin: 15px;
+  font-size: 24px;
+  line-height: 2;
+}
+
+img.Jitome {
+  width: 60%;
+  top: 180px;
+  position: relative;
+}
+.Jitojo-enter-active {
+  transition: all 1s 1s ease;
+}
+.Jitojo-leave-active {
   transition: all 1s ease;
 }
 
-.toujou-enter-from {
+.Jitojo-enter-from,/*全体的な指定*/
+.Jitojo-leave-to {
+  opacity: 0;
   transform: translateY(50px);
-  opacity: 1;
 }
 
-img.Jitome{
-  width: 65%;
-  position: absolute;
-  bottom: -8%;
-  left: 18%;
+@media screen and (min-width: 768px) {
+  div.PCmode{
+    margin: 0 36%;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+  }
 }
-

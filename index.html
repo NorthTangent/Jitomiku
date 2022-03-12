@@ -6,42 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
     </style>
     <link rel="stylesheet" href="style.css">
     <title>ジト目みくじ</title>
 </head>
 <body>
     <div id="app">
-        <transition appear name="menu" v-show="menu == 1">      
-            <div id="menu">
-                <div id="logo">
-                    <transition appear name="logo">
-                        <img src="./images/logo.png" alt="ジト目みくじ">
-                    </transition>
-                </div>
-                <div id="log">
-                    <p>今日の運勢</p>
-                    <p v-if="howmany < 1" class="yet">まだ引いていません</p>
-                    <p v-else class="done">{{ today_lucky }}</p>
-                </div>
-                <div id="select">
-                    <img v-if="howmany < 1" @click="start" src="./images/btn_01_hiku.png" alt="おみくじを引く" class="select_start">
-                    <img v-else @click="start" src="./images/btn_02_hikinao.png" alt="おみくじを引き直す" class="select_start">
-                    <div id="about">
-                        <img src="./images/btn_03_wariai.png" alt="提供割合">
-                        <img src="./images/btn_04_setsu.png" alt="説明">
+        <div class="PCmode" :class="{ kotei: isKotei }">
+            <transition appear name="menu" v-show="menu == 1">      
+                <div id="menu">
+                    <div id="logo">
+                        <transition appear name="logo">
+                            <img src="./images/logo.png" alt="ジト目みくじ">
+                        </transition>
+                    </div>
+                    <div id="log">
+                        <p>今日の運勢</p>
+                        <p v-if="howmany < 1" class="yet">まだ引いていません</p>
+                        <p v-else class="done">{{ today_lucky }}</p>
+                    </div>
+                    <div id="select">
+                        <img v-if="howmany < 1" @click="start" src="./images/btn_01_hiku.png" alt="おみくじを引く" class="select_start">
+                        <img v-else @click="start" src="./images/btn_02_hikinao.png" alt="おみくじを引き直す" class="select_start">
+                        <div id="about">
+                            <img src="./images/btn_03_wariai.png" alt="提供割合">
+                            <img src="./images/btn_04_setsu.png" alt="説明">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </transition>
-        <div id="talk" v-show="menu == 2">
-            <transition appear name="toujou">
-                <img :src="Jitome_Face" alt="テストに参加してくれてありがとう！！たんじぇんと" class="Jitome">
             </transition>
+            <transition name="Jitojo" v-show="menu == 2">
+                <div id="talk">
+                    <div class="fukidashi">
+                        <img src="./images/Jitome/00_fukidashi.png">
+                        <p>文字入力テスト。<br>改行テスト。はじめまして。<br>じとめみこです。</p>
+                    </div>
+                    <img :src="Jitome_Face" alt="じとめみこ" class="Jitome">
+                </div>
+            </transition>
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
     <script src="Jitome_talk.js"></script>
+    <script src="Jitome_face.js"></script>
     <script src="omikuji.js"></script>
 </body>
 </html>
