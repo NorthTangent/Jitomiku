@@ -40,7 +40,7 @@
                 <div id="talk">
                     <div class="fukidashi">
                         <img src="./images/Jitome/00_fukidashi.png">
-                        <p>文字入力テスト。<br>改行テスト。はじめまして。<br>じとめみこです。</p>
+                        <p v-html="talking" :class="{talklook: isLook}"></p>
                     </div>
                     <img :src="Jitome_Face" alt="じとめみこ" class="Jitome">
                 </div>

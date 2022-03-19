@@ -85,14 +85,29 @@ p.done{
   position: absolute;
 }
 .fukidashi p {
-  font-family: 'RocknRoll One', sans-serif;
   position: absolute;
   width: 85%;
   margin: 15px;
   font-size: 24px;
   line-height: 2;
+  white-space: pre-line; 
 }
 
+.fukidashi p span{
+  animation-name: junban;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  font-family: 'RocknRoll One', sans-serif;
+}
+@keyframes junban {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 img.Jitome {
   width: 60%;
   top: 180px;

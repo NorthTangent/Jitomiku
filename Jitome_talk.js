@@ -6,7 +6,7 @@ const Jito_Aisatsu_First = [
 
 const Jito_Aisatsu_Second = [
     "はじめまして",
-    "今日は初めてですね",
     "また会いましたね",
+    "今日は初めてですね",
     "お久しぶりですね"
 ]
