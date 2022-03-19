@@ -36,11 +36,15 @@
                     </div>
                 </div>
             </transition>
+            <div id="next" v-show="menu == 2">
+                <!--wrap-->
+            </div>
             <transition name="Jitojo" v-show="menu == 2">
                 <div id="talk">
                     <div class="fukidashi">
                         <img src="./images/Jitome/00_fukidashi.png">
-                        <p v-html="talking" :class="{talklook: isLook}"></p>
+                        <p v-html="talking" class="talking"></p>
+                        <p v-html="wait" class="next"></p>
                     </div>
                     <img :src="Jitome_Face" alt="じとめみこ" class="Jitome">
                 </div>

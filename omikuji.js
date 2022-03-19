@@ -19,10 +19,12 @@ const App = ({
                 this.talk = this.talk + text;
                 if (end == 1) {
                     this.talking = "";
+                    this.wait = "";
                     for (let i = 0; i < this.talk.length; i++) {
-                        this.talking = this.talking + '<span style="animation-delay: ' + ((i*100)+1500) + 'ms;">' + this.talk[ i ] + '</span>';
+                        this.talking = this.talking + '<span style="animation-delay: ' + ((i*70)+1500) + 'ms;">' + this.talk[ i ] + '</span>';
                     }
-                } 
+                    this.wait = '<span style="animation-delay: ' + ((this.talk.length*70)+1500) + 'ms;">▼</span>';
+                }
             }
             //はじめのあいさつ
             this.Jitome_Face = Jito_Face['Normal'];
@@ -43,9 +45,8 @@ const App = ({
             } else {
                 textbox(Jito_Aisatsu_Second[2]);
             }
-            textbox("\nじとめみこです",1)
             localStorage.setItem('latest',this.today);
-
+            textbox("\nじとめみこです",1)
 
         }
     }
