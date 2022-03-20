@@ -18,6 +18,9 @@ div.kotei {
 #logo img{
   width: 75%;
 }
+#logo p{
+  margin: -13% 0 0 0;
+}
 #select img{
   width: 70%;
   margin: 2% 2% 0 2%;
@@ -113,6 +116,10 @@ p.done{
     opacity: 1;
   }
 }
+.fukidashi p.talking.skip span{
+  animation-delay: 0;
+}
+
 .fukidashi p.next{
   position: absolute;
   top: 380%;

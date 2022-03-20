@@ -9,7 +9,10 @@ const App = ({
             talking: "",
             talklist: [],
             talkwait: [],
-            talknum: 0
+            talkwaittime: 0,
+            talknum: 0,
+
+            verSet:"Ver. 0.11 β"
         }
     },
     methods: {
@@ -26,10 +29,18 @@ const App = ({
                 if (end == 1) {
                     this.talkative = "";
                     for (let i = 0; i < this.talk.length; i++) {
-                        this.talkative += '<span style="animation-delay: ' + ((i*70)+wait) + 'ms;">' + this.talk[ i ] + '</span>';
+                        this.talkative += '<span style="animation-delay: ' + ((i*25)+wait) + 'ms;">' + this.talk[ i ] + '</span>';
                     }
                     this.talklist.push(this.talkative);
-                    this.talkwait.push((( this.talk.length * 70 ) + wait ));
+                    this.talkwait.push((( this.talk.length * 25 ) + wait ));
+
+                    this.talkative = "";
+                    for (let i = 0; i < this.talk.length; i++) {
+                        this.talkative += '<span>' + this.talk[ i ] + '</span>';
+                    }
+                    this.talklist.push(this.talkative);
+                    this.talkwait.push(0);
+
                     this.talk = "";
                 }
             }
@@ -54,9 +65,9 @@ const App = ({
 
             //ここから2文目の設定
             if (this.latest.getFullYear() == this.today.getFullYear() && this.latest.getMonth() == this.today.getMonth() && this.latest.getDate() == this.today.getDate()) {
-                textPlus("おみくじの引き直しですね\n次はいいのが出るといいね",1,0);
+                textPlus("おみくじの引き直しですね\nまあがんばってください",1,0);
             } else {
-                textPlus("今日ひくのは初めてですね\n一発でいいやつ\n引いちゃいましょう",1,0);
+                textPlus("今日引くのは初めてですね\n一発でいいやつ\n引いちゃいましょう",1,0);
             }
 
             this.next();
@@ -108,11 +119,20 @@ const App = ({
         next(){
             this.talking = this.talklist[this.talknum];
             this.wait = `<span style="animation-delay: ${this.talkwait[this.talknum]}ms;">▼</span>`;
-
-
+            if (this.talkwaittime != -1) {
+                this.talkwaittime = Date.now() + this.talkwait[this.talknum];
+            }
         },
         nextOn(){
-            this.talknum++;
+            if (this.talkwaittime == -1) {
+                this.talknum ++;
+                this.talkwaittime = 0;
+            } else if (Date.now() > this.talkwaittime ) {
+                this.talknum += 2;
+            } else {
+                this.talkwaittime = -1;
+                this.talknum ++;
+            }
             this.next();
         }
     }
